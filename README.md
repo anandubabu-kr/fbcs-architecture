@@ -1,38 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FBCS architecture
 
-## Getting Started
+**for building service oriented scalable next/react application**
+Feature Based Component and Service architecture
 
-First, run the development server:
+\*This architecture is still in evolution to support implementations of full backend apis. Currently it is focused on building and consuming gateways alone.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# folder structure goals
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This folder structure is developed based on separation of responsibilities
+Each folder shares a single responsibility.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 1. page
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+> routing and default starting point
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+It is a next js defined directory to handle routes and apis. A page is actually constructed with the features from the respective feature directory.
+the folder will contain the following directories
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. `api` - The gate way APIs will be defined here
+2. `feature-x`
 
-## Learn More
+## 2. features
 
-To learn more about Next.js, take a look at the following resources:
+> individual independent features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+One feature may be constructed with the components. Features are more likely to invoke any services associated with that feature
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. `core` - The shared features across pages.
+2. `feature-x` - The page specific features.
 
-## Deploy on Vercel
+## 3. components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> The smallest reusable and immutable pieces of the application
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 4. services
+
+> The services consists api consumers and respective state handlers hooks
+
+1. `api`
+2. `hooks`
+
+## 5. utils
+
+> essential javascript functions and redux store
+
+This folder holds all
+
+## 6. config
+
+> any configuration files
+
+## 7. theme and styles
+
+> theming related configurations and styles
+
+`styles ` is a next defined directory
+
+## `core`
+
+Core is the most reused independent items in eact sections
+
+> The core folder in most of the section is actually targeted to be moved to the libs when mono-repo is requested
