@@ -1,68 +1,63 @@
-# Astro Starter Kit: Blog
+# FBCS architecture
 
-```
-npm create astro@latest -- --template blog
-```
+**for building service oriented scalable next/react application**
+Feature Based Component and Service architecture
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+\*This architecture is still in evolution to support implementations of full backend apis. Currently it is focused on building and consuming gateways alone.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# folder structure goals
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+This folder structure is developed based on separation of responsibilities
+Each folder shares a single responsibility.
 
-Features:
+## 1. page
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+> routing and default starting point
 
-## 🚀 Project Structure
+It is a next js defined directory to handle routes and apis. A page is actually constructed with the features from the respective feature directory.
+the folder will contain the following directories
 
-Inside of your Astro project, you'll see the following folders and files:
+1. `api` - The gate way APIs will be defined here
+2. `feature-x`
 
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+## 2. features
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+> individual independent features
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+One feature may be constructed with the components. Features are more likely to invoke any services associated with that feature
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+1. `core` - The shared features across pages.
+2. `feature-x` - The page specific features.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 3. components
 
-## 🧞 Commands
+> The smallest reusable and immutable pieces of the application
 
-All commands are run from the root of the project, from a terminal:
+## 4. services
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+> The services consists api consumers and respective state handlers hooks
 
-## 👀 Want to learn more?
+1. `api`
+2. `hooks`
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 5. utils
 
-## Credit
+> essential javascript functions and redux store
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+This folder holds all
+
+## 6. config
+
+> any configuration files
+
+## 7. theme and styles
+
+> theming related configurations and styles
+
+`styles ` is a next defined directory
+
+## `core`
+
+Core is the most reused independent items in eact sections
+
+> The core folder in most of the section is actually targeted to be moved to the libs when mono-repo is requested
