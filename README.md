@@ -8,10 +8,22 @@ Read from [Documentation](https://fbcs-architecture.netlify.app/) with illustrat
 
 \*_This architecture is still in evolution to support implementations of full backend apis. Currently it is focused on building and consuming gateways alone._
 
+# Prerequisites
+
+1. Knowledge in ReactJS and NextJS.
+2. Build application with intense api interactions.
+3. Basic understanding of Component Based Architecture and Modular architecture.
+
 # Folder structure goals
 
-This folder structure is developed based on separation of responsibilities
-Each folder shares a single responsibility. The application will be located in the `src/` directory so that we can separate the testing related directory from the project structure.
+This folder structure is developed based on separation of responsibilities.
+
+Since we are using a component library such as antd/material-ui for the ui components, it could act as shared-ui as well as at some degree widgets.
+Each folder shares a single **responsibility**. The application will be located in the `src/` directory so that we can separate the testing related directory from the project structure.
+
+Outside of this `src` there can be framework(next-js)/library(react) specific configuration files and test directories.
+
+\*_For a mono repo the approach could be much different._
 
 ## 1. `page/`
 
@@ -26,8 +38,8 @@ Page will contain the following directories
 
 ### Sub directories
 
-- 1. `api/` - The gate way APIs will be defined here
-- 2. `page-x/` - This will be the routes
+1. `api/` - The gate way APIs will be defined here
+2. `page-x/` - This will be the routes
 
 ```
 └── page/
