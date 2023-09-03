@@ -1,9 +1,12 @@
 # FBCS architecture
 
-**for building service oriented scalable next/react application**
 Feature Based Component and Service architecture
 
-\*This architecture is still in evolution to support implementations of full backend apis. Currently it is focused on building and consuming gateways alone.
+_for building service oriented scalable next/react application_
+
+Read from [Documentation](https://fbcs-architecture.netlify.app/) with illustration.
+
+\*_This architecture is still in evolution to support implementations of full backend apis. Currently it is focused on building and consuming gateways alone._
 
 # Folder structure goals
 
