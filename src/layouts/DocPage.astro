@@ -3,9 +3,9 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "components/BaseHead.astro";
 import Header from "components/Header.astro";
 import Footer from "components/Footer.astro";
-import FormattedDate from "components/FormattedDate.astro";
 import Sidebar from "components/Sidebar.astro";
 import "styles/docs-styles.css";
+import InternalLinks from "components/InternalLinks.astro";
 
 type Props = CollectionEntry<"docs">["data"];
 
@@ -19,9 +19,9 @@ const { title, description } = Astro.props;
 
   <body>
     <Header />
-    <main class="flex w-full h-[80vh]">
+    <main class="flex w-full h-[90vh]">
       <Sidebar />
-      <article class="h-[80vh] w-full overflow-y-scroll px-4 pt-6">
+      <article class="h-[90vh] w-full overflow-y-scroll px-4 md:px-12 pt-6">
         <div class="hero-image"></div>
         <div class="prose">
           <div class="title">
@@ -31,6 +31,7 @@ const { title, description } = Astro.props;
           <slot />
         </div>
       </article>
+      <InternalLinks />
     </main>
     <Footer />
   </body>

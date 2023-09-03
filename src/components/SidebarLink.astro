@@ -10,7 +10,7 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
 <a
-  class="block w-full px-4 py-2 rounded-md"
+  class="block w-full px-4 py-2 rounded-md hover:bg-orange-50 duration-100 active:bg-orange-300"
   href={href}
   class:list={[className, { active: isActive }]}
   {...props}

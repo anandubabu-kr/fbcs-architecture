@@ -1,7 +1,9 @@
 ---
 import BaseHead from "components/BaseHead.astro";
+import { Image } from "astro:assets";
 import Header from "components/Header.astro";
 import Footer from "components/Footer.astro";
+import baseImg from "assets/base-arch.png";
 import { SITE_TITLE, SITE_DESCRIPTION } from "consts";
 ---
 
@@ -35,7 +37,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "consts";
         </article>
       </section>
 
-      <section class="">
+      <section class="flex flex-col">
         <h1 class="text-4xl font-bold text-center capitalize">Main Concepts</h1>
         <article class="flex mt-6 flex-col md:flex-row">
           <div class="flex flex-col w-full text-center bg-slate-100 mx-2 py-4">
@@ -63,13 +65,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "consts";
             </p>
           </div>
         </article>
-      </section>
+        <div class="mx-auto w-2/3 mt-6">
+          <Image src={baseImg} alt={"Base arch illustration"} />
 
-      <section class="text-center mt-6">
-        We are working on building demo and guide for react applications and
-        mono-repo as well
+          <section class="text-center mt-6">
+            We are working on building demo and guide for react applications and
+            mono-repo as well
+          </section>
+        </div>
+        <Footer />
       </section>
     </main>
-    <Footer />
   </body>
 </html>
