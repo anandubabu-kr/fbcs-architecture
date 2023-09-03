@@ -1,0 +1,56 @@
+---
+import BaseHead from "components/BaseHead.astro";
+import Header from "components/Header.astro";
+import Footer from "components/Footer.astro";
+import Sidebar from "components/Sidebar.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "components/FormattedDate.astro";
+
+const posts = (await getCollection("docs")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+// return Astro.redirect("/docs/get-started");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      main {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main class="flex">
+      <Sidebar />
+      <section>
+        <article class="mx-auto h-[80vh] w-[80%] mt-12">
+          <h1 class="text-5xl">FBCS architecture</h1>
+          <i> for building service oriented scalable next/react application</i>
+
+          <h2 class="text-3xl">
+            Feature Based Component and Service architecture
+          </h2>
+
+          <p>
+            This architecture is still in evolution to support implementations
+            of full backend apis. Currently it is focused on building and
+            consuming gateways alone.
+            <h3 class="text-2xl">folder structure goals</h3>
+            <p>
+              This folder structure is developed based on separation of
+              responsibilities Each folder shares a single responsibility. The
+              application will be located in the `src/` directory so that we can
+              separate the testing related directory from the project structure.
+            </p>
+          </p>
+        </article>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

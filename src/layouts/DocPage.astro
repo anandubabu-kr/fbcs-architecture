@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "components/BaseHead.astro";
+import Header from "components/Header.astro";
+import Footer from "components/Footer.astro";
+import FormattedDate from "components/FormattedDate.astro";
+import Sidebar from "components/Sidebar.astro";
+
+type Props = CollectionEntry<"docs">["data"];
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body>
+    <Header />
+    <main class="flex w-full h-[80vh]">
+      <Sidebar />
+      <article class="h-[80vh] w-full overflow-y-scroll px-4 pt-6">
+        <div class="hero-image"></div>
+        <div class="prose">
+          <div class="title">
+            <h1 class="text-6xl">{title}</h1>
+            <hr />
+          </div>
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

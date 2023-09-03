@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import SidebarLink from "./SidebarLink.astro";
+
+const posts = (await getCollection("docs")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+
+type postType = {
+  slug: string;
+  data: {
+    title: string;
+  };
+};
+---
+
+<nav class="border-r px-6 w-1/5 pt-8">
+  <menu class="">
+    {
+      posts.map((post: postType) => (
+        <li class="block ">
+          <SidebarLink href={`/docs/${post.slug}/`}>
+            {post.data.title}
+          </SidebarLink>
+        </li>
+      ))
+    }
+  </menu>
+</nav>
