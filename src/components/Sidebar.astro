@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import SidebarLink from "./SidebarLink.astro";
 
 const posts = (await getCollection("docs")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => a.data.order.valueOf() - b.data.order.valueOf()
 );
 
 type postType = {
@@ -14,7 +14,7 @@ type postType = {
 };
 ---
 
-<nav class="border-r px-6 w-1/5 pt-8">
+<nav class="border-r px-6 w-1/5 pt-8 bg-white">
   <menu class="">
     {
       posts.map((post: postType) => (

@@ -29,6 +29,8 @@ One feature may be constructed with the components. Features are more likely to 
 1. `core` - The shared features across pages.
 2. `feature-x` - The page specific features.
 
+_There will be one single export per an feature_
+
 ## 3. components/
 
 > The smallest reusable and immutable pieces of the application

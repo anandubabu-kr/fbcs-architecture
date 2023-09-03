@@ -5,6 +5,7 @@ import Header from "components/Header.astro";
 import Footer from "components/Footer.astro";
 import FormattedDate from "components/FormattedDate.astro";
 import Sidebar from "components/Sidebar.astro";
+import "styles/docs-styles.css";
 
 type Props = CollectionEntry<"docs">["data"];
 
@@ -13,7 +14,7 @@ const { title, description } = Astro.props;
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={` FBCS | ${title}`} description={description} />
   </head>
 
   <body>
@@ -24,7 +25,7 @@ const { title, description } = Astro.props;
         <div class="hero-image"></div>
         <div class="prose">
           <div class="title">
-            <h1 class="text-6xl">{title}</h1>
+            <h1 class="font-bold text-orange-500">{title}</h1>
             <hr />
           </div>
           <slot />
